@@ -1,1 +1,58 @@
-<p>user-page works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">GestiónApp</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#quienes-somos">Quiénes Somos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#vision-mision" [routerLink]="['/routePath']" routerLinkActive="router-link-active" >Visión y Misión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#gestion-usuarios">Gestión de Usuarios</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid bg-primary text-white text-center py-5">
+    <h1>Añade un nuevo usuario</h1>
+    <p>Forma parte de nuestro equipo </p>
+    <button class="btn btn-light btn-lg">Registrate aquí abajo ! </button>
+</div>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form [formGroup]="myForm" (ngSubmit)="onSaveUser()" action="" class="form-control p-4 shadow">
+                <h2 class="text-center mb-4">Registro de Usuario</h2>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input formControlName="userName" type="text" id="nombre" class="form-control" placeholder="Ingrese su nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input formControlName="userEmail" type="email" id="email" class="form-control" placeholder="Ingrese su email">
+                </div>
+                <div class="mb-3">
+                    <label for="rol" class="form-label">Rol</label>
+                    <select id="rol" class="form-select" formControlName="userRole">
+                        <option value="" disabled selected>Seleccione un rol</option>
+                        <option value="admin">Admin</option>
+                        <option value="editor">Editor</option>
+                        <option value="viewer">Viewer</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary w-100" [disabled]="myForm.invalid">Registrar</button>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -18,7 +18,6 @@ const routes:Routes=[
       {path:'products',component:ProductsPageComponent},
     ]
   },
-  
 ]
 
 

@@ -3,12 +3,8 @@
 #sidebar {
     background-color: #212529; /* Fondo oscuro */
     color: #f8f9fa; /* Texto claro */
-    width: 250px;
-    height: 100vh; /* Altura completa */
-    position: fixed; /* Fijo a la izquierda */
-    top: 0;
-    left: 0;
-    padding: 20px;
+    height: 110vh; /* Altura completa */
+    padding: 10px;
     border-right: 2px solid #343a40; /* Borde derecho */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
     overflow-y: auto; /* Scroll si el contenido es extenso */
@@ -26,8 +22,8 @@
 
 /* Styling for the divider */
 #sidebar hr {
-    border-color: #495057; /* Color del separador */
-    margin-bottom: 20px;
+    border-color: #ffffff; /* Color del separador */
+  
 }
 
 /* Styling for the buttons */
