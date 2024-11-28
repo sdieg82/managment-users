@@ -5,5 +5,9 @@ export const routes: Routes = [
     {
         path:'mainUser',
         component: MainPageComponent
+    },
+    {
+        path:'**',
+        redirectTo:'mainUser'
     }
 ];
