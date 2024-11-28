@@ -1,22 +1,35 @@
-<div class="bg-dark border-right p-3" id="sidebar">
-    <h3 class="text-light">Gestión de Empleados</h3>
-    <hr class="text-white">
+<div class="border-right p-3" id="sidebar">
+  <h3 class="text-light">GestiónApp</h3>
+  <hr class="text-white" />
 
-    <div  class="list-group list-reset">
-        <button  
-        class="list-group-item list-group-item-action mb-2 rounded"
-        >
-        Nuevo Usuario
-        </button>
-        <button  
-        class="list-group-item list-group-item-action mb-2 rounded"
-        >
-        Lista de usuario
-        </button>
-        <button  
-        class="list-group-item list-group-item-action mb-2 rounded"
-        >
-        Productos
-        </button>
-    </div>
+  <div class="list-group list-reset">
+    <button
+      class="list-group-item list-group-item-action mb-2 rounded"
+      [routerLink]="['home']"
+      routerLinkActive="router-link-active"
+    >
+      Inicio
+    </button>
+    <button
+      class="list-group-item list-group-item-action mb-2 rounded"
+      [routerLink]="['users']"
+      routerLinkActive="router-link-active"
+    >
+      Nuevo Usuario
+    </button>
+    <button
+      class="list-group-item list-group-item-action mb-2 rounded"
+      [routerLink]="['list-users']"
+      routerLinkActive="router-link-active"
+    >
+      Usuarios
+    </button>
+    <button
+      class="list-group-item list-group-item-action mb-2 rounded"
+      [routerLink]="['products']"
+      routerLinkActive="router-link-active"
+    >
+      Productos
+    </button>
+  </div>
 </div>
