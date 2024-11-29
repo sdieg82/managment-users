@@ -3,7 +3,8 @@
 #sidebar {
     background-color: #212529; /* Fondo oscuro */
     color: #f8f9fa; /* Texto claro */
-    height: 110vh; /* Altura completa */
+    height: 108vh; /* Altura completa */
+    width: 256px;
     padding: 10px;
     border-right: 2px solid #343a40; /* Borde derecho */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
@@ -14,6 +15,7 @@
 #sidebar h3 {
     font-size: 1.5rem;
     font-weight: bold;
+    
     margin-bottom: 15px;
     text-align: center; /* Centrar el título */
     text-transform: uppercase;

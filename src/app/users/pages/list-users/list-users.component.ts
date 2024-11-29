@@ -32,6 +32,8 @@ export class ListUsersComponent implements OnInit {
       console.error('Error al obtener usuarios:', err);
     }
   }
-  
-  
+
+  deleteUserList(id:string):void{
+    const deletedUser=this.userService.deleteUserById(id)
+  }
 }
