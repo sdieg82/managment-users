@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavBarComponent } from "../../shared/components/nav-bar/nav-bar.component";
 import { HomePageComponent } from "../home-page/home-page.component";
 import { RouterOutlet } from '@angular/router';
+import { User } from '../../interfaces/User.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -11,5 +12,9 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './main-page.component.css'
 })
 export class MainPageComponent {
+
+  saveUser(user:User):void{
+    console.log('desde el padre',user)
+  }
 
 }
