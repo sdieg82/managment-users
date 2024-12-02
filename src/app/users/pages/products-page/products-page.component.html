@@ -1,1 +1,46 @@
-<p>products-page works!</p>
+<div class="row mt-2 p-3 shadow  rounded">
+    <!-- Columna de búsqueda -->
+    <div class="col-md-6 mb-4">
+        <h2 class="text-primary"> Ingrese los Gifs</h2>
+        <hr>
+        <input 
+            type="text" 
+            class="form-control border-primary shadow-sm" 
+            placeholder="Ingrese el gif a buscar"
+            #tagInput
+            (keyup.enter)="searchGif()"
+           
+        > 
+    </div>
+    <!-- Columna del historial -->
+    <div class="col-md-6">
+        <h2 class="text-success">Historial de gifs</h2>
+        <hr>
+        <ul class="list-group">
+            <li *ngFor="let item of gifList" class="list-group-item list-group-item-action shadow-sm btn">
+                {{item | titlecase }} 
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Título central para la sección de Gifs -->
+<div class="row">
+    <div class="col-12">
+        <h2 class="text-center text-secondary mt-4">Gifs</h2>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="card mb-2 text-center bg-dark">
+                <div class="card-body text-white">
+                    <p class="card-text">
+                        hola gif
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>

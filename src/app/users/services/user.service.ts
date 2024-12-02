@@ -37,7 +37,6 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.userSubject.asObservable();
   }
-
   // Método para agregar usuarios
   addUser(user: User): Observable<User[]> {
     this.user.push(user); // Agregar al arreglo local
@@ -46,7 +45,7 @@ export class UserService {
   }
   deleteUserById(id:string):User[]{
     if(!id) return[]
-    this.user=this.user.filter((e)=>e.userId!==id)
-    return this.user
+    this._users=this.user.filter((e)=>e.userId!==id)
+    return this._users
   }
 }
