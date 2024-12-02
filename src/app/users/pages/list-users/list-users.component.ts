@@ -19,6 +19,10 @@ export class ListUsersComponent implements OnInit {
     private userService:UserService
   ){}
 
+  get users(){
+    return [...this.userService.usersList]
+  }
+
   ngOnInit(): void {
     this.getUsers()
   }
@@ -27,7 +31,7 @@ export class ListUsersComponent implements OnInit {
     try {
       const users = await firstValueFrom(this.userService.getUsers());
       this.user = users;
-      console.log('Usuarios desde el servicio:', this.user);
+      // console.log('Usuarios desde el servicio:', this.user);
     } catch (err) {
       console.error('Error al obtener usuarios:', err);
     }
@@ -35,5 +39,6 @@ export class ListUsersComponent implements OnInit {
 
   deleteUserList(id:string):void{
     const deletedUser=this.userService.deleteUserById(id)
+    this.user=deletedUser
   }
 }

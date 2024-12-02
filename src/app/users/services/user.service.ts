@@ -27,6 +27,12 @@ export class UserService {
 
   constructor() {}
 
+  public _users:User[]=[]
+
+  get usersList(){
+    return [...this.user]
+  }
+
   // Método para obtener usuarios como Observable
   getUsers(): Observable<User[]> {
     return this.userSubject.asObservable();
@@ -41,7 +47,6 @@ export class UserService {
   deleteUserById(id:string):User[]{
     if(!id) return[]
     this.user=this.user.filter((e)=>e.userId!==id)
-    console.log(this.user)
     return this.user
   }
 }
