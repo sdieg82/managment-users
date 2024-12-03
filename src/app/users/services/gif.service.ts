@@ -29,7 +29,7 @@ export class GifService {
       this._tagHistory = this._tagHistory.filter((e) => e !== tag);
     }
     this._tagHistory.unshift(tag);
-    this._tagHistory = this._tagHistory.splice(0, 6);
+    this._tagHistory = this._tagHistory.splice(0, 3);
   }
 
   searchTag(tag: string): void {

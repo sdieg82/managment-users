@@ -15,7 +15,7 @@ export class ProductsPageComponent implements OnInit {
   public gifList: Gif[] = [];
 
   @ViewChild('tagInput') public tagInput!: ElementRef<HTMLInputElement>;
-
+  
   constructor(
     private gifService: GifService
   ) {
@@ -39,8 +39,14 @@ export class ProductsPageComponent implements OnInit {
     return this.searchList
   }
 
+  searchGifByli(tag:string):void{
+    if(!tag) return 
+    this.gifService.searchTag(tag)
+  }
+
   searchGif(): void {
-    const newSearch = this.tagInput.nativeElement.value;
+    const newSearch = this.tagInput.nativeElement.value
+    console.log(newSearch)
     if (newSearch.trim().length > 0) {
       this.gifService.searchTag(newSearch);
       this.tagInput.nativeElement.value = '';

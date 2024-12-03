@@ -17,9 +17,16 @@
         <h2 class="text-success">Historial de gifs</h2>
         <hr>
         <ul class="list-group">
-            <li *ngFor="let item of searchList" class="list-group-item list-group-item-action shadow-sm btn">
+            <button 
+            *ngFor="
+            let item of searchList
+            let i=index
+            "  
+            class="list-group-item list-group-item-action shadow-sm btn"
+            (click)="searchGifByli(item)"
+            >
                 {{item | titlecase }} 
-            </li>
+            </button>
         </ul>
     </div>
 </div>
@@ -34,6 +41,12 @@
 
         <div *ngFor="let gif of gifList" class="col-md-3 col-sm-6">
             <div class="card mb-2 text-center bg-dark">
+                <img 
+                [src]="gif.images.downsized_medium.url" 
+                [alt]="gif.title"
+                class="card-img-top"
+                >
+                
                 <div class="card-body text-white">
                     <p class="card-text">
                         {{gif.title}}
@@ -41,7 +54,5 @@
                 </div>
             </div>
         </div>
-        
-        
     </div>
 </div>
