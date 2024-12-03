@@ -14,7 +14,8 @@ export class ProductsPageComponent implements OnInit {
   public searchList: string[] = [];
   public gifList: Gif[] = [];
 
-  @ViewChild('tagInput') public tagInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('tagInput') 
+  public tagInput!: ElementRef<HTMLInputElement>;
   
   constructor(
     private gifService: GifService
