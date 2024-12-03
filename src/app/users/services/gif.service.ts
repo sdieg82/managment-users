@@ -1,43 +1,48 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-const GIPHY_API_KEY='gu3Vy8xgg6kifgQ571WCF1fpduDZQ1X2'
-const urlGif = `https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API_KEY}&q=valorant`
+import { BehaviorSubject } from 'rxjs';
+import { Gif, SearchResponse } from '../interfaces/Gif.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GifService {
-  
-  constructor(
-    private http:HttpClient
-  ) { }
-  
-  private apiGif:string=GIPHY_API_KEY
-  
-  private organizedTags(tag:string){
-    tag=tag.toLowerCase()
-    if(this._tagHistory.includes(tag)){
-      this._tagHistory=this._tagHistory.filter((e)=>e!==tag)
+  private GIPHY_API_KEY = 'gu3Vy8xgg6kifgQ571WCF1fpduDZQ1X2';
+  private urlGif = `https://api.giphy.com/v1/gifs`;
+
+  private _tagHistory: string[] = [];
+  private _gifList = new BehaviorSubject<Gif[]>([]); // Observable para los GIFs
+
+  constructor(private http: HttpClient) {}
+
+  get tagHistory() {
+    return [...this._tagHistory];
+  }
+
+  get gifList$() {
+    return this._gifList.asObservable(); // Observable que se puede suscribir
+  }
+
+  private organizedTags(tag: string) {
+    tag = tag.toLowerCase();
+    if (this._tagHistory.includes(tag)) {
+      this._tagHistory = this._tagHistory.filter((e) => e !== tag);
     }
-    this._tagHistory.unshift(tag)
-    this._tagHistory=  this._tagHistory.splice(0,6)
-  }
-  
-  public _tagHistory:string[]=[]
-
-  get tagHistory(){
-    return [...this._tagHistory]
+    this._tagHistory.unshift(tag);
+    this._tagHistory = this._tagHistory.splice(0, 6);
   }
 
-  searchTag(tag:string):void{
-    if(tag.length===0)return 
-    this.organizedTags(tag)
-    this.http.get(urlGif)
-    .subscribe(
-      resp=>{
-        console.log(resp)
-      }
-    )
+  searchTag(tag: string): void {
+    if (tag.length === 0) return;
+    this.organizedTags(tag);
+
+    const params = new HttpParams()
+      .set('api_key', this.GIPHY_API_KEY)
+      .set('limit', 8)
+      .set('q', tag);
+
+    this.http.get<SearchResponse>(`${this.urlGif}/search`, { params }).subscribe((resp) => {
+      this._gifList.next(resp.data); // Actualiza el BehaviorSubject
+    });
   }
 }
